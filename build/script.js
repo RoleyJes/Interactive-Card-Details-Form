@@ -1,9 +1,7 @@
 "use strict";
 const nameInp = document.querySelector("#nameInp");
 const cardName = document.querySelector(".cardName");
-
 const numberInp = document.querySelector("#numberInp");
-// numberInp.value = +numberInp.value;
 const cardNumber = document.querySelector(".cardNumber");
 
 const monthInp = document.querySelector("#monthInp");
@@ -95,12 +93,16 @@ const handleSubmit = function () {
 
   if (
     nameInp.value &&
+    /^[A-Za-z]*[A-Za-z ]*$/.test(nameInp.value) &&
     numberInp.value &&
     numberInp.value.length === 19 &&
     /^(\d+ )*(\d+)$/.test(numberInp.value) &&
     monthInp.value &&
+    monthInp.value.length === 2 &&
     yearInp.value &&
-    cvcInp.value
+    yearInp.value.length === 2 &&
+    cvcInp.value &&
+    cvcInp.value.length === 3
   ) {
     form.classList.add("hidden");
     completed.classList.remove("hidden");

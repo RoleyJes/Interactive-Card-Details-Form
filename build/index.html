@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/style.css" rel="stylesheet" />
+    <title>Interactive Card Details</title>
+  </head>
+  <body class="font-grotesk font-medium text-lg">
+    <div class="md:grid md:grid-cols-2">
+      <div
+        class="w-full h-[14.5rem] md:w-[80%] md:h-screen bg-cover bg-center bg-no-repeat relative">
+        <picture
+          ><source
+            media="(min-width: 768px)"
+            srcset="imgs/bg-main-desktop.png" />
+          <img
+            src="imgs/bg-main-mobile.png"
+            class="w-full h-[240px] md:h-screen md:w-[80%]"
+            alt="" />
+        </picture>
+
+        <!-- Cards Wrapper(absolute) -->
+        <div
+          class="absolute top-[1.5rem] right-[1.5rem] md:top-[0] md:right-[0]">
+          <!-- Cards Wrapper(flex) -->
+          <div
+            class="flex flex-col md:flex-col-reverse md:gap-[2rem] md:items-center md:justify-center md:h-screen">
+            <!-- Back Card -->
+            <div
+              style="background-image: url('imgs/bg-card-back.png')"
+              class="w-[17.5rem] h-[10rem] rounded-lg overflow-hidden bg-no-repeat bg-cover bg-center md:h-[11rem] md:mr-[-9rem] lg:w-[22rem] lg:h-[12rem] xl:w-[27rem] xl:h-[15rem]">
+              <div
+                class="flex flex-col items-end justify-between mr-8 md:mr-6 lg:mr-12 h-full">
+                <div></div>
+                <p
+                  class="text-white tracking-widest font-semibold text-[10px] md:text-xs lg:text-sm cvc">
+                  000
+                </p>
+                <div></div>
+              </div>
+            </div>
+
+            <!-- Front Card -->
+            <div
+              style="background-image: url('imgs/bg-card-front.png')"
+              class="bg-no-repeat bg-cover bg-center rounded-lg overflow-hidden p-5 mt-[-4.3rem] ml-[-3rem] h-[10rem] w-[17.5rem] md:mr-[-2rem] md:h-[11rem] md:ml-0 md:mt-0 lg:w-[22rem] lg:h-[12rem] xl:w-[27rem] xl:h-[15rem] xl:px-8">
+              <div class="flex flex-col h-full justify-between">
+                <div class="w-14 h-14 xl:w-[84px] xl:h-[47px]">
+                  <img class="" src="imgs/card-logo.svg" alt="card logo" />
+                </div>
+
+                <div
+                  class="uppercase text-white tracking-widest cardNumber xl:text-[26px]">
+                  0000 0000 0000 0000
+                </div>
+                <div
+                  class="flex justify-between font-normal tracking-widest text-white text-[10px] md:text-xs lg:text-sm">
+                  <p class="cardName uppercase">JANE AETHELFLED</p>
+                  <p>
+                    <span class="month">00</span> / <span class="year">00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="md:col-span- md:relative">
+        <div
+          class="mt-[7rem] h-full px-6 md:mt-0 md:px-0 md:flex md:justify-center md:items-center md:mx-auto md:w-[80%] lg:w-[70%] lg:max-w-[413px]">
+          <form action="/">
+            <div class="flex flex-col gap-2 mb-5">
+              <label
+                class="text-verydarkviolet tracking-widest font-semibold text-xs"
+                for="nameInp"
+                >CARDHOLDER NAME</label
+              >
+
+              <input
+                class="p-3 rounded-lg w-full h-full placeholder-lightgrayishviolet border-2 border-lightgrayishviolet"
+                type="text"
+                name="name"
+                id="nameInp"
+                placeholder="e.g. Jane Aethelfled" />
+
+              <p class="errorName text-error text-xs hidden"></p>
+            </div>
+
+            <div class="flex flex-col gap-2 mb-5">
+              <label
+                class="text-verydarkviolet tracking-widest font-semibold text-xs"
+                for="numberInp"
+                >CARD NUMBER</label
+              >
+
+              <input
+                class="p-3 rounded-lg w-full h-full placeholder-lightgrayishviolet border-2 border-lightgrayishviolet"
+                type="text"
+                name="number"
+                maxlength="19"
+                id="numberInp"
+                placeholder="e.g. 1234 5678 9123 0000" />
+
+              <p class="errorNumber text-error text-xs hidden"></p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex flex-col gap-2">
+                <label
+                  class="text-verydarkviolet text-xs tracking-widest font-semibold"
+                  for=""
+                  >EXP. DATE (MM/YY)
+                </label>
+                <div class="flex gap-2">
+                  <div class="flex flex-col gap-2">
+                    <input
+                      class="p-3 rounded-lg w-full max-h-[51px] placeholder-lightgrayishviolet border-2 border-lightgrayishviolet"
+                      type="number"
+                      name="month"
+                      oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
+                      maxlength="2"
+                      id="monthInp"
+                      placeholder="MM" />
+
+                    <p class="errorMonth text-error text-xs hidden mt-2"></p>
+                  </div>
+
+                  <div class="flex flex-col gap-2">
+                    <input
+                      class="p-3 rounded-lg w-full max-h-[51px] placeholder-lightgrayishviolet border-2 border-lightgrayishviolet"
+                      type="number"
+                      name="year"
+                      oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
+                      maxlength="2"
+                      id="yearInp"
+                      placeholder="YY" />
+                    <p class="errorYear text-error text-xs hidden mt-2"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex flex-col gap-2">
+                  <label
+                    class="text-verydarkviolet text-xs tracking-widest font-semibold"
+                    for="cvcInp"
+                    >CVC</label
+                  >
+
+                  <input
+                    class="p-3 rounded-lg w-full h-full placeholder-lightgrayishviolet border-2 border-lightgrayishviolet"
+                    type="number"
+                    name="cvc"
+                    oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"
+                    maxlength="3"
+                    id="cvcInp"
+                    placeholder="e.g. 123 " />
+                  <p class="errorCvc text-error text-xs hidden mt-2"></p>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="bg-verydarkviolet text-white rounded-lg mt-8 mb-12 md:mb-0 w-full py-3 submitBtn"
+              type="submit">
+              Confirm
+            </button>
+          </form>
+
+          <!-- Thank You -->
+          <div class="completed hidden">
+            <div class="flex flex-col justify-center items-center gap-6">
+              <div class="">
+                <img src="imgs/icon-complete.svg" alt="good" />
+              </div>
+              <p class="uppercase text-3xl text-verydarkviolet tracking-widest">
+                thank you!
+              </p>
+              <p class="text-darkgrayishviolet tracking-wide">
+                We've added your card details
+              </p>
+
+              <button
+                class="bg-verydarkviolet text-white rounded-lg mt-5 mb-12 w-full py-3 lg:w-[400px] thankYou"
+                type="submit">
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

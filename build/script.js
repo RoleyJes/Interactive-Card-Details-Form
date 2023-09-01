@@ -58,7 +58,7 @@ const handleSubmit = function () {
 
   if (!numberInp.value) {
     setErrorFor(numberInp, "Can't be blank");
-  } else if (numberInp.value.length < 19) {
+  } else if (numberInp.value.length < 19 || numberInp.value.length > 19) {
     setErrorFor(numberInp, "Must be 16 digits");
     console.log(typeof numberInp.value);
   } else if (!/^(\d+ )*(\d+)$/.test(numberInp.value)) {
